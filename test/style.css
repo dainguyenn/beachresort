@@ -1,0 +1,15 @@
+@keyframes opa {
+    to {
+        opacity: 0.2;
+    }
+
+    form {
+        opacity: 1;
+    }
+}
+
+.opa {
+    animation-name: opa;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+}
