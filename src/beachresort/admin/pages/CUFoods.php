@@ -17,7 +17,7 @@
 
     $isEdit = isset($_GET['upd']);
     if ($isEdit) {
-        $foodUp = $diveRepo->findById($_GET['upd']);
+        $foodUp = $foodsRepo->findById($_GET['upd']);
         $foodUp = mysqli_fetch_array($foodUp);
     }
     ?>
@@ -55,7 +55,7 @@
                                         </tr>
                                         <tr>
                                             <td><input required type="submit" name="createOrUpdate" value="" class="btn"></td>
-                                            <td><a href="../adminDive.php" class="">quay lai</a></td>
+                                            <td><a href="../adminFoods.php" class="">quay lai</a></td>
 
                                         </tr>
                                     </tbody>
