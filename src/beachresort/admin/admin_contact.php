@@ -1,6 +1,5 @@
 <?php
 include_once '/_Ky5/PHP/const.php';
-include_once PATH_DIR . '/authentication/Authenticate.php';
 include_once PATH_DIR . '/beachresort/entity/User.php';
 
 // if (!isset($_SESSION)) {
