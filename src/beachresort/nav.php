@@ -15,22 +15,44 @@ if (isset($_POST['test'])) $isAdmin = !$isAdmin;
 
         $url = $_SERVER['PHP_SELF'];
 
+        $user = null;
+        $admin = false;
+        $roleAllow = ['ROLE_ADMIN', 'ROLE_EDITOR'];
+        if (isset($_SESSION['user'])) {
+            $user = unserialize($_SESSION['user']);
+            foreach ($roleAllow as $value) {
+                if (in_array($value, $user->roles)) {
+                    $admin = true;
+                    break;
+                }
+            }
+        }
+
+
         if (str_contains($url, '/src/beachresort/admin/')) {
-            if (empty(unserialize($_SESSION['user']))) {
+            if (empty($user)) {
                 print("<script>
                 window.location.replace('/src/beachresort/index.php');
                </script>");
+            } else {
+                if (!$admin) {
+                    print("<script>window.location.replace('/src/beachresort/index.php'); </script>");
+                }
             }
         }
-        isset($_SESSION['user']) ?
-            print("<h5 style='display:inline-block;'>"
-                . unserialize($_SESSION['user'])->username . "</h5>"
-                . "<a href='/src/beachresort/admin/index.php' style='' name='test'>Quản trị</a> "
-                . "<form style='display:inline-block;' 
-                 method='post'><button class='btn btn-danger' name='logout'>Logout</button></form>"
+        if (!empty($user)) {
+            $navUser = "<h5 style='display:inline-block;'>" . $user->username . "</h5>";
+            if ($admin) {
+                $navUser .= "<a href='/src/beachresort/admin/index.php' style='' name='test'>Quản trị</a> ";
+            }
+            $navUser .= "<form style='display:inline-block;' 
+            method='post'><button class='btn btn-danger' name='logout'>Logout</button></form>";
+            print($navUser);
+        } else {
+            print "<div style='display:flex; flex: 1; flex-direction: row-reverse; '><a class='btn btn-primary' style='text-decoration: none; margin-right:15px;' href='/src/beachresort/login.php'> Login </a></div>";
+        }
 
-            )
-            : print "<div style='display:flex; flex: 1; flex-direction: row-reverse; '><a class='btn btn-primary' style='text-decoration: none; margin-right:15px;' href='/src/beachresort/login.php'> Login </a></div>"
+
 
         ?>
     </div>
