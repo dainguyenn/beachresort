@@ -1,5 +1,4 @@
 <?php
- 
 class Connect
 {
     private static $servername = "localhost";

@@ -10,6 +10,6 @@ class UploadFile
 
     public function save($fileSave, $filename)
     {
-        move_uploaded_file($fileSave, self::$fileSavePath . $filename);
+        move_uploaded_file($fileSave, self::$fileSavePath . time() . $filename);
     }
 }

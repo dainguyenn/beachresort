@@ -1,4 +1,5 @@
 <?php
+
 require_once '/_Ky5/PHP/const.php';
 
 include_once PATH_DIR . '/repository/Connect.php';

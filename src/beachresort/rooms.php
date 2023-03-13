@@ -22,7 +22,7 @@
 		<div id="page">
 			<?php include_once 'nav.php' ?>
 			<div id="contents">
-				<div class="box  w-[860px]">
+				<div class="box  w-[860px] ">
 					<div>
 						<div class="body">
 							<h1>Rooms</h1>
@@ -30,8 +30,8 @@
 								<?php foreach ($rooms as $room) {
 								?>
 									<li>
-										<a href="rooms.php"><img class="w-[399px]" src="<?php echo $room['img'] ?>" alt="Img"></a>
-										<h2><a href="rooms.php"><?php echo $room['name'] ?></a></h2>
+										<a href="<?php echo 'roomDetail.php?id=' . $room['id'] ?>" ;><img class="w-[399px]" src="<?php echo $room['img'] ?>" alt="Img"></a>
+										<h2><a href="<?php echo 'roomDetail.php?id=' . $room['id'] ?>"><?php echo $room['name'] ?></a></h2>
 										<p>
 											<?php echo $room['description'] ?>
 										</p>

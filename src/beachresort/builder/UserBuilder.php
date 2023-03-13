@@ -1,6 +1,5 @@
 <?php
 
-include_once '/_Ky5/PHP/src/authentication/UserDetail.php';
 
 class UserBuilder
 {
@@ -14,8 +13,6 @@ class UserBuilder
     private $dob;
     private $hobby;
     private $avatar;
-
-
 
     /**
      * Set the value of username

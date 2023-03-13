@@ -118,7 +118,7 @@
                 ->setRate($p['rate']);
             if ($_FILES['img']['size'] > 0) {
                 // $pathImgStore  = "S:/_Ky5/PHP/src/fileUpload/imgs/" . $_FILES['img']['name'];
-                $pathImg  = "/src/fileUpload/imgs/" . $_FILES['img']['name'];
+                $pathImg  = "/src/fileUpload/imgs/" . time() . $_FILES['img']['name'];
                 // move_uploaded_file($_FILES['img']['tmp_name'], $pathImgStore);
                 $upload->save($_FILES['img']['tmp_name'], $_FILES['img']['name']);
                 $room->setImg($pathImg);
@@ -135,7 +135,7 @@
             $roomRepo->save($room);
 
             print("<script>
-            window.location.replace('../adminRoom.php   ');
+            window.location.replace('../adminRoom.php');
            </script>");
         }
     }

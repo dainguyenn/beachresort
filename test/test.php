@@ -1,6 +1,12 @@
 <?php
-if (in_array(array('a', 'b'), array('a'), true)) {
-    echo 'ok';
+$arr = [];
+if (empty($arr)) {
+    echo 'empty';
+}
+$arr[1] = 'abc';
+
+if (empty($arr)) {
+    echo ' empty  2';
 } else {
-    echo 'no';
+    print_r($arr);
 }

@@ -45,7 +45,7 @@ if (isset($_POST['test'])) $isAdmin = !$isAdmin;
             if ($admin) {
                 $navUser .= "<a href='/src/beachresort/admin/index.php' style='' name='test'>Quản trị</a> ";
             }
-            $navUser .= "<form style='display:inline-block;' 
+            $navUser .= "<a href='/src/beachresort/cart.php'>Giỏ hàng</a> " . "<form style='display:inline-block;' 
             method='post'><button class='btn btn-danger' name='logout'>Logout</button></form>";
             print($navUser);
         } else {

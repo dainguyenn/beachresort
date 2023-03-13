@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 interface IRepository
 {
     function save($E);
